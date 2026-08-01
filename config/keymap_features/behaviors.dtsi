@@ -188,6 +188,8 @@
             bindings = <&mo_clk 3 LCLK>, <&mkp LCLK>; // hold, tap, double_tap
         };
 
+        // Generic NUM-layer hold-tap. Used on both inner thumbs: tap = Backspace
+        // (left) / Enter (right), hold = NUM. Right thumb makes digits one-handed.
         bs_num: bs_num {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
