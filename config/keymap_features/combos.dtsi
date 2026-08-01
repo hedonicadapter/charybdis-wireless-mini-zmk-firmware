@@ -63,9 +63,10 @@
             layers = <0>;
         };
 
+        // Positions 1/10, not the 0/11 corners — outer columns absent on 3x5 builds.
         combo_bt_clear_safe {
             bindings = <&bt BT_CLR>;
-            key-positions = <0 11>;
+            key-positions = <1 10>;
             layers = <0>;
         };
 
