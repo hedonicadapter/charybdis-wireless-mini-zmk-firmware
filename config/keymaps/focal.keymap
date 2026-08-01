@@ -56,7 +56,7 @@
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────┤
     &kp TAB          &ht_left_tp LCMD S  &ht_left LALT R  &ht_left LSHFT N  &ht_left LCTRL T  &kp B    &kp Y   &ht_right RCTRL C  &ht_right RSHFT A  &ht_right_tp LALT E  &ht_right_tp RCMD I   &kp DEL
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────┤
-    &clip_hist       &kp Z            &kp X            &kp M             &kp D             &kp P    &kp APOS   &kp W              &mm_cm_sc          &mm_pr_col        &mm_qm_ex          &kp FSLH
+    &clip_hist       &kp Z            &kp X            &kp M             &kp D             &kp P    &bs_num 1 APOS   &kp W              &mm_cm_sc          &mm_pr_col        &mm_qm_ex          &kp FSLH
 // ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┴─────────────────┴─────────────────┴─────────────╯
                                                              &td_esc_scrl_slow   &td_clk  &bs_num 1 BACKSPACE   &kp ENTER  &td_space_nav
                                                          // ╰──────────────────┴─────────┴──────╯  ╰──────────┴──────────────╯
@@ -68,7 +68,7 @@
             bindings = <
 &none   &none  &none   &none  &none          &none            &kp PLUS     &mm_f7             &mm_f8             &mm_f9             &mm_f10            &none
 &trans   &none  &none  &none  &kp BACKSPACE  &kp LSHIFT       &kp KP_MINUS &mm_f4             &mm_f5             &mm_f6             &mm_f11            &none
-&none    &none  &kp X  &none  &none          &none            &kp EQUAL    &mm_f1             &mm_f2             &mm_f3             &mm_f12            &kp KP_SLASH
+&none    &none  &kp X  &none  &none          &none            &trans       &mm_f1             &mm_f2             &mm_f3             &mm_f12            &kp KP_SLASH
                        &none  &none          &trans           &kp N0     &kp SPACE
             >;
         };
