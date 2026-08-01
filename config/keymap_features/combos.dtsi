@@ -70,6 +70,14 @@
             layers = <0>;
         };
 
+        // Plain BT_SEL 0 — no layer, no hold-tap, so it can't misfire Enter/Space
+        // and dismiss a BLE pairing popup.
+        combo_bt_connect {
+            bindings = <&bt BT_SEL 0>;
+            key-positions = <4 7>;
+            layers = <0>;
+        };
+
         combo_prev_desktop {
             bindings = <&desktop_prev>;
             key-positions = <24 25>;
