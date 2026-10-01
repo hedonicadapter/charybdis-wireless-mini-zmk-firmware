@@ -256,6 +256,19 @@
                 ;
         };
 
+#ifdef LOCALE_SV
+        // Tap dead key then space so Swedish ~ ` ´ ^ type literally
+        sv_lit: sv_literal {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_tap &kp SPACE>
+                ;
+        };
+#endif
+
         combo_all_windows_hold: combo_all_windows_hold {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;

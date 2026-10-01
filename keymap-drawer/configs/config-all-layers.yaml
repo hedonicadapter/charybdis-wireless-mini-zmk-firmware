@@ -253,6 +253,11 @@ parse_config:
     C_NEXT: "NEXT"
     SPACE: "SPACE"
   raw_binding_map:
+    # Swedish dead keys typed literally
+    "&sv_lit SV_TILDE": "~"
+    "&sv_lit SV_GRAVE": "`"
+    "&sv_lit SV_ACUTE": "´"
+    "&sv_lit SV_CARET": "^"
     # --- Hold-tap / Home Row Mods (legacy + shared) ---
     "&ht_left LCMD A":          {t: A,     h: "Gui"}
     "&ht_left LALT S":          {t: S ,    h: "Alt"}

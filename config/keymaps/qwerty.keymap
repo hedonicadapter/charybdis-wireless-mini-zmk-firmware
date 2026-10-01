@@ -80,8 +80,8 @@
             display-name = "Nav";
             bindings = <
 &none    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
-&kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &h_split         &kp LEFT_ARROW     &kp DOWN     &kp UP          &kp RIGHT_ARROW   &none
-&none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &v_split         &kp HOME           &kp PG_DN    &kp PG_UP       &kp END           &none
+&kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp LEFT_ARROW   &kp DOWN           &kp UP       &kp RIGHT_ARROW &h_split          &none
+&none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp HOME         &kp PG_DN          &kp PG_UP    &kp END         &v_split          &none
                                                       &none   &none   &none               &none   &trans
             >;
         };
@@ -90,9 +90,9 @@
         SYM {
             display-name = "Sym";
             bindings = <
-&none  &kp SV_CARET  &kp SV_PRCNT  &kp SV_HASH   &kp SV_AMPS    &kp SV_PIPE      &kp SV_AT     &kp SV_DLLR   &kp SV_PLUS   &kp SV_ASTRK  &none        &none
-&none  &kp SV_UNDER  &kp SV_EQUAL  &kp SV_MINUS  &kp BACKSPACE  &kp SV_TILDE     &kp SV_DQT    &kp SV_SQT    &kp SV_ACUTE  &kp SV_GRAVE  &none        &none
-&none  &kp SV_LBKT   &kp SV_LT     &kp SV_FSLH   &kp SV_LBRC    &kp SV_LPAR      &kp SV_RPAR   &kp SV_RBRC   &kp SV_BSLH   &kp SV_GT     &kp SV_RBKT  &none
+&none  &sv_lit SV_CARET  &kp SV_PRCNT  &kp SV_HASH   &kp SV_AMPS    &kp SV_PIPE       &kp SV_AT    &kp SV_DLLR  &kp SV_PLUS       &kp SV_ASTRK      &none        &none
+&none  &kp SV_UNDER      &kp SV_EQUAL  &kp SV_MINUS  &kp BACKSPACE  &sv_lit SV_TILDE  &kp SV_DQT   &kp SV_SQT   &sv_lit SV_ACUTE  &sv_lit SV_GRAVE  &none        &none
+&none  &kp SV_LBKT       &kp SV_LT     &kp SV_FSLH   &kp SV_LBRC    &kp SV_LPAR       &kp SV_RPAR  &kp SV_RBRC  &kp SV_BSLH       &kp SV_GT         &kp SV_RBKT  &none
                                    &none         &trans         &trans           &trans        &trans
             >;
         };
