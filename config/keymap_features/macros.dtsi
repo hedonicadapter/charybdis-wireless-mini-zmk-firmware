@@ -1,15 +1,17 @@
+#include "locale.h"
+
 / {
     macros {
         v_split: v_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(B) &kp PRCNT>;
+            bindings = <&macro_tap &kp LC(B) &kp L_PRCNT>;
         };
 
         h_split: h_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(B) &kp DQT>;
+            bindings = <&macro_tap &kp LC(B) &kp L_DQT>;
         };
 
         detach_session: detach_session {
@@ -48,7 +50,7 @@
                 , <&macro_tap &kp N>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp W>
-                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp L_MINUS>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp S>
@@ -57,10 +59,10 @@
                 , <&macro_tap &kp O>
                 , <&macro_tap &kp N>
                 , <&macro_tap &kp SPC>
-                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp L_MINUS>
                 , <&macro_tap &kp A>
                 , <&macro_tap &kp SPC>
-                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp L_MINUS>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp SPC>
             ;
@@ -78,23 +80,23 @@
                 , <&macro_release &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp N0 &kp N0 &kp A &kp F &kp SPC>
                 // \
-                , <&macro_tap &kp BACKSLASH>
-                , <&macro_tap &kp BACKSLASH>
+                , <&macro_tap &kp L_BSLH>
+                , <&macro_tap &kp L_BSLH>
                 // _
-                , <&macro_tap &kp UNDER>
+                , <&macro_tap &kp L_UNDER>
                 // (
-                , <&macro_tap &kp LPAR>
+                , <&macro_tap &kp L_LPAR>
                 // ツ (Katakana Letter Tu)
                 , <&macro_press &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp U>
                 , <&macro_release &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp N3 &kp N0 &kp C &kp N4 &kp SPC>
                 // )
-                , <&macro_tap &kp RPAR>
+                , <&macro_tap &kp L_RPAR>
                 // _
-                , <&macro_tap &kp UNDER>
+                , <&macro_tap &kp L_UNDER>
                 // /
-                , <&macro_tap &kp FSLH>
+                , <&macro_tap &kp L_FSLH>
                 // ¯ (Macron)
                 , <&macro_press &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp U>
@@ -111,8 +113,8 @@
             bindings = <
                 &macro_tap &kp G &kp I &kp T &kp SPACE
                 &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE
-                &kp MINUS &kp A &kp M &kp SPACE
-                &kp DQT &kp LS(W) &kp LS(I) &kp LS(P) &kp DQT
+                &kp L_MINUS &kp A &kp M &kp SPACE
+                &kp L_DQT &kp LS(W) &kp LS(I) &kp LS(P) &kp L_DQT
             >;
         };
 
@@ -135,8 +137,8 @@
             bindings = <
                 &macro_tap
                 &kp LS(L) &kp LS(G) &kp LS(T) &kp LS(M)
-                &kp SPACE &kp MINUS &kp SPACE
-                &kp LS(A) &kp P &kp P &kp R &kp O &kp V &kp E &kp D &kp EXCL
+                &kp SPACE &kp L_MINUS &kp SPACE
+                &kp LS(A) &kp P &kp P &kp R &kp O &kp V &kp E &kp D &kp L_EXCL
             >;
         };
 
@@ -148,7 +150,7 @@
             bindings
                 = <&macro_tap &kp S &kp U &kp D &kp O>  // "sudo"
                 , <&macro_tap &kp SPACE>                // space
-                , <&macro_tap &kp EXCL &kp EXCL>        // "!!"
+                , <&macro_tap &kp L_EXCL &kp L_EXCL>        // "!!"
                 , <&macro_tap &kp RET>                  // Enter key
                 ;
         };
@@ -227,9 +229,16 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp GRAVE>
-                , <&macro_tap &kp GRAVE>
-                , <&macro_tap &kp GRAVE>
+#ifdef LOCALE_SV
+                // Swedish ` is dead key; space emits literal
+                = <&macro_tap &kp L_GRAVE &kp SPACE>
+                , <&macro_tap &kp L_GRAVE &kp SPACE>
+                , <&macro_tap &kp L_GRAVE &kp SPACE>
+#else
+                = <&macro_tap &kp L_GRAVE>
+                , <&macro_tap &kp L_GRAVE>
+                , <&macro_tap &kp L_GRAVE>
+#endif
                 ;
         };
         
@@ -237,8 +246,13 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp TILDE>
-                , <&macro_tap &kp FSLH>
+#ifdef LOCALE_SV
+                // Swedish ~ is dead key; space emits literal
+                = <&macro_tap &kp L_TILDE &kp SPACE>
+#else
+                = <&macro_tap &kp L_TILDE>
+#endif
+                , <&macro_tap &kp L_FSLH>
                 ;
         };
 

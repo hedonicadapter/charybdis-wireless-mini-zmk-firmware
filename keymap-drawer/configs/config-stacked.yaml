@@ -177,6 +177,38 @@ parse_config:
       left_ctrl+left_alt+left_shift: Meh
   zmk_remove_keycode_prefix: []
   zmk_keycode_map:
+    # Swedish OS layout keycodes (keymap_features/keys_sv.h)
+    SV_SEMI: ";"
+    SV_FSLH: "/"
+    SV_PLUS: "+"
+    SV_A_RING: "å"
+    SV_A_UMLAUT: "ä"
+    SV_O_UMLAUT: "ö"
+    SV_CARET: "^"
+    SV_PRCNT: "%"
+    SV_HASH: "#"
+    SV_AMPS: "&"
+    SV_PIPE: "|"
+    SV_AT: "@"
+    SV_DLLR: "$"
+    SV_ASTRK: "*"
+    SV_UNDER: "_"
+    SV_EQUAL: "="
+    SV_MINUS: "-"
+    SV_TILDE: "~"
+    SV_DQT: "\""
+    SV_SQT: "'"
+    SV_ACUTE: "´"
+    SV_GRAVE: "`"
+    SV_LBKT: "["
+    SV_LT: "<"
+    SV_LBRC: "{"
+    SV_LPAR: "("
+    SV_RPAR: ")"
+    SV_RBRC: "}"
+    SV_BSLH: "\\"
+    SV_GT: ">"
+    SV_RBKT: "]"
     EXCLAMATION: "!"
     EXCL: "!"
     AT_SIGN: "@"
@@ -302,6 +334,7 @@ parse_config:
     # --- Tap-preferred right-hand variants ---
     "&ht_right_tp LALT L":      {t: L,     h: "Alt"}
     "&ht_right_tp RCMD SEMICOLON": {t: ";", h: "Gui"}
+    "&ht_right_tp RCMD SV_SEMI"   : {t: ";", h: "Gui"}
     "&ht_right_tp LALT I":      {t: I,     h: "Alt"}
     "&ht_right_tp RCMD O":      {t: O,     h: "Gui"}
     "&ht_left_tp LCMD A":       {t: A,     h: "Gui"}
