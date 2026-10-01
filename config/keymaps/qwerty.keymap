@@ -49,6 +49,25 @@
     };
 #endif
 
+    behaviors {
+        // Hold = NAV as soon as another key is pressed; tap = Esc
+        esc_nav: esc_nav {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // 1x: Esc / hold NAV, 2x hold: SCROLL, 3x hold: SLOW
+        td_esc_nav: td_esc_nav {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&esc_nav 2 ESC>, <&mo 7>, <&mo 6>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
         BASE {
@@ -61,7 +80,7 @@
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────┤
     &clip_hist       &kp Z            &kp X            &kp C             &kp V             &kp B    &bs_num 1 N   &kp M              &mm_cm_sc          &mm_pr_col        &mm_qm_ex          &kp SV_FSLH
 // ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┴─────────────────┴─────────────────┴─────────────╯
-                                                             &td_esc_scrl_slow   &td_clk  &bs_num 1 BACKSPACE   &kp ENTER  &td_space_nav
+                                                             &td_esc_nav         &td_clk  &bs_num 1 BACKSPACE   &kp ENTER  &kp SPACE
                                                          // ╰──────────────────┴─────────┴──────╯  ╰──────────┴──────────────╯
             >;
         };

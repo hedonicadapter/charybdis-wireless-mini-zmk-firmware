@@ -354,6 +354,7 @@ parse_config:
     "&td_home": "~/"
     "&td_equals": "="
     "&td_esc_scrl_slow": {t: "ESC L_SCRL L_SLOW", type: thumb}
+    "&td_esc_nav":       {t: "ESC L_NAV L_SCRL L_SLOW", type: thumb}
     "&td_space_nav":     {t: "󱁐 L_NAV",     type: thumb}
     "&td_bs":            {t: "BS L_NUM",    type: thumb}
 
