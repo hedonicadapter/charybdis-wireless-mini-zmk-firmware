@@ -80,6 +80,19 @@
         };
     };
 
+    // Left thumb clicks: Esc+Click = left, Click+Space = right (Click alone = middle)
+    combos {
+        compatible = "zmk,combos";
+        combo_thumb_left_click {
+            bindings = <&mkp LCLK>;
+            key-positions = <36 37>;
+        };
+        combo_thumb_right_click {
+            bindings = <&mkp RCLK>;
+            key-positions = <37 38>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
         BASE {
@@ -92,7 +105,7 @@
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────┤
     &clip_hist       &kp Z            &kp X            &kp C             &kp V             &kp B    &bs_num 1 N   &kp M              &mm_cm_sc          &mm_pr_col        &mm_qm_ex          &kp SV_FSLH
 // ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┴─────────────────┴─────────────────┴─────────────╯
-                                                             &td_esc_sym         &mkp LCLK  &bs_num 1 BACKSPACE   &kp ENTER  &space_nav 2 SPACE
+                                                             &td_esc_sym         &mkp MCLK  &space_nav 2 SPACE   &kp ENTER  &bs_num 1 BACKSPACE
                                                          // ╰──────────────────┴─────────┴──────╯  ╰──────────┴──────────────╯
             >;
         };
@@ -103,17 +116,17 @@
 &none    &home_dir       &code_blk       &delete_line    &move_line_up    &mc_add_above    &kp SV_PLUS  &mm_f7  &mm_f8  &mm_f9  &mm_f10  &none
 &trans   &kp SV_A_RING   &kp SV_A_UMLAUT &kp SV_O_UMLAUT &kp BACKSPACE    &kp LSHIFT       &kp KP_MINUS &mm_f4  &mm_f5  &mm_f6  &mm_f11  &none
 &none    &none           &kp X           &none           &move_line_down  &mc_add_below    &trans       &mm_f1  &mm_f2  &mm_f3  &mm_f12  &kp KP_SLASH
-                                         &none           &none            &trans           &kp N0       &kp SPACE
+                                         &none           &none            &kp N0           &trans       &trans
             >;
         };
 
         NAV {
             display-name = "Nav";
             bindings = <
-&none    &msc MOVE_LEFT  &msc MOVE_UP    &none        &msc MOVE_DOWN  &msc MOVE_RIGHT     &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
+&none    &msc SCRL_UP    &kp LS(TAB)     &kp TAB      &msc SCRL_DOWN  &none               &detach_session  &create_or_attach  &next_pane   &show_sessions  &sync_panes       &none
 &kp TAB  &mkp MB4        &kp LALT        &kp LSHFT    &kp LCTRL       &mkp MB5            &kp LEFT_ARROW   &kp DOWN           &kp UP       &kp RIGHT_ARROW &h_split          &none
 &none    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP &mmv MOVE_RIGHT &none               &kp HOME         &kp PG_DN          &kp PG_UP    &kp END         &v_split          &none
-                                                      &none   &none   &none               &none   &trans
+                                                      &trans  &trans  &trans              &trans  &trans
             >;
         };
 

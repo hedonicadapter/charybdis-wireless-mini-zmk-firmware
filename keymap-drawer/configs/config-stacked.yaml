@@ -321,6 +321,8 @@ parse_config:
     C_NEXT: "󰼧"
     SPACE: "󱁐"
   raw_binding_map:
+    "&msc SCRL_UP": "SCRL UP"
+    "&msc SCRL_DOWN": "SCRL DOWN"
     # Swedish dead keys typed literally
     "&sv_lit SV_TILDE": "~"
     "&sv_lit SV_GRAVE": "`"
