@@ -91,6 +91,23 @@
             bindings = <&mkp RCLK>;
             key-positions = <37 38>;
         };
+
+        // Media, right hand only: vertical pairs (same finger can't roll them)
+        combo_media_prev {
+            bindings = <&kp C_PREV>;
+            key-positions = <7 19>;
+            layers = <0>;
+        };
+        combo_media_play {
+            bindings = <&kp C_PLAY_PAUSE>;
+            key-positions = <8 20>;
+            layers = <0>;
+        };
+        combo_media_next {
+            bindings = <&kp C_NEXT>;
+            key-positions = <9 21>;
+            layers = <0>;
+        };
     };
 
     keymap {
