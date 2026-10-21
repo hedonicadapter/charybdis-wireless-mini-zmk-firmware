@@ -179,6 +179,8 @@ parse_config:
   zmk_keycode_map:
     # Swedish OS layout keycodes (keymap_features/keys_sv.h)
     SV_SEMI: ";"
+    SV_COMMA: ","
+    SV_DOT: "."
     SV_FSLH: "/"
     SV_PLUS: "+"
     SV_A_RING: "å"
@@ -321,6 +323,8 @@ parse_config:
     C_NEXT: "󰼧"
     SPACE: "󱁐"
   raw_binding_map:
+    "&mkp_lt 7 MCLK": {t: "Mid CLK", h: "Scroll"}
+    "&tog 4": "GAME"
     "&msc SCRL_UP": "SCRL UP"
     "&msc SCRL_DOWN": "SCRL DOWN"
     # Swedish dead keys typed literally

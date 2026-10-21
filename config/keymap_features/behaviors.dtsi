@@ -137,6 +137,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
         };
 
         // Tap-biased left-hand HRM for fast-roll letter keys (used on A).
@@ -150,6 +151,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
         };
 
         td_esc_scrl_slow: td_esc_scrl_slow {
