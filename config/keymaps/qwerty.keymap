@@ -170,13 +170,14 @@
         };
 
         // Plain QWERTY, no hold-taps so keys can be held. Toggle from XTRA (H).
+        // Right outer thumb: tap Esc, hold GAME_NUM (must sit above GAME to show through).
         GAME {
             display-name = "Game";
             bindings = <
 &none  &kp Q  &kp W  &kp E  &kp R  &kp T    &kp Y  &kp U  &kp I      &kp O      &kp P        &none
 &none  &kp A  &kp S  &kp D  &kp F  &kp G    &kp H  &kp J  &kp K      &kp L      &kp SV_SEMI  &none
 &none  &kp Z  &kp X  &kp C  &kp V  &kp B    &kp N  &kp M  &kp SV_COMMA  &kp SV_DOT  &kp SV_MINUS  &none
-                     &kp LSHIFT  &kp LCTRL  &kp SPACE    &kp ESC  &trans
+                     &kp LSHIFT  &kp LCTRL  &kp SPACE    &kp ENTER  &hp_lt 8 ESC
             >;
         };
 
@@ -213,6 +214,17 @@
 &trans  &kp LGUI   &kp LALT  &kp LSHFT  &kp LCTRL  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans     &trans    &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans
                              &trans     &trans     &trans    &trans  &trans
+            >;
+        };
+
+        // Numbers/F-keys/arrows while in GAME (hold right outer thumb)
+        GAME_NUM {
+            display-name = "GameNum";
+            bindings = <
+&none  &kp N1   &kp N2  &kp N3  &kp N4  &kp N5     &kp N6   &kp N7    &kp N8  &kp N9     &kp N0     &none
+&none  &kp TAB  &none   &none   &none   &none      &kp LEFT &kp DOWN  &kp UP  &kp RIGHT  &kp BSPC   &none
+&none  &kp F1   &kp F2  &kp F3  &kp F4  &kp F5     &kp F6   &kp F7    &kp F8  &kp F9     &kp F10    &none
+                        &trans  &trans  &trans     &trans   &trans
             >;
         };
     };
