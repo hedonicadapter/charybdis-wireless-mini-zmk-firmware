@@ -76,6 +76,17 @@
             bindings = <&mo>, <&mkp>;
         };
 
+        // Backspace thumb / hold NUM. No prior-idle, so it works right after a
+        // mod (e.g. Gui then NUM then digit); balanced = NUM once a key is tapped.
+        bs_num_thumb: bs_num_thumb {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
+        };
+
         // Space / hold NAV. Fast typing always taps (prior idle); NAV once
         // another key is tapped while held; tap-then-hold repeats space.
         space_nav: space_nav {
@@ -133,7 +144,7 @@
 // ├───────────────┼────────────────┼────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┼─────────────────┼─────────────────┼─────────────┤
     &clip_hist       &kp Z            &kp X            &kp C             &kp V             &kp B    &bs_num 1 N   &kp M              &mm_cm_sc          &mm_pr_col        &mm_qm_ex          &kp SV_FSLH
 // ╰───────────────┴────────────────┴────────────────┼─────────────────┼─────────────────┼──────┤  ├──────┼──────────────────┼──────────────────┴─────────────────┴─────────────────┴─────────────╯
-                                                             &td_esc_sym         &mkp_lt 7 MCLK  &space_nav 2 SPACE   &kp ENTER  &bs_num 1 BACKSPACE
+                                                             &td_esc_sym         &mkp_lt 7 MCLK  &space_nav 2 SPACE   &kp ENTER  &bs_num_thumb 1 BACKSPACE
                                                          // ╰──────────────────┴─────────┴──────╯  ╰──────────┴──────────────╯
             >;
         };
@@ -142,7 +153,7 @@
             display-name = "Num";
             bindings = <
 &none    &home_dir       &code_blk       &delete_line    &move_line_up    &mc_add_above    &kp SV_PLUS  &mm_f7  &mm_f8  &mm_f9  &mm_f10  &none
-&trans   &kp SV_A_RING   &kp SV_A_UMLAUT &kp SV_O_UMLAUT &kp BACKSPACE    &kp LSHIFT       &kp KP_MINUS &mm_f4  &mm_f5  &mm_f6  &mm_f11  &none
+&trans   &ht_left_tp LCMD SV_A_RING  &ht_left LALT SV_A_UMLAUT  &ht_left LSHFT SV_O_UMLAUT  &ht_left LCTRL BACKSPACE  &kp RSHIFT       &kp KP_MINUS &mm_f4  &mm_f5  &mm_f6  &mm_f11  &none
 &none    &none           &kp X           &none           &move_line_down  &mc_add_below    &trans       &mm_f1  &mm_f2  &mm_f3  &mm_f12  &kp KP_SLASH
                                          &none           &none            &kp N0           &trans       &trans
             >;
@@ -229,3 +240,18 @@
         };
     };
 };
+
+/* NUM F-keys only via NUM's own Shift (G, RShift); home-row Shift + digit
+   stays Shift+digit so Gui+Shift+N (move to workspace) works. */
+&mm_f1 { mods = <MOD_RSFT>; };
+&mm_f2 { mods = <MOD_RSFT>; };
+&mm_f3 { mods = <MOD_RSFT>; };
+&mm_f4 { mods = <MOD_RSFT>; };
+&mm_f5 { mods = <MOD_RSFT>; };
+&mm_f6 { mods = <MOD_RSFT>; };
+&mm_f7 { mods = <MOD_RSFT>; };
+&mm_f8 { mods = <MOD_RSFT>; };
+&mm_f9 { mods = <MOD_RSFT>; };
+&mm_f10 { mods = <MOD_RSFT>; };
+&mm_f11 { mods = <MOD_RSFT>; };
+&mm_f12 { mods = <MOD_RSFT>; };

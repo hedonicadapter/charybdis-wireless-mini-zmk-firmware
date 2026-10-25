@@ -255,6 +255,11 @@ parse_config:
     C_NEXT: "NEXT"
     SPACE: "SPACE"
   raw_binding_map:
+    "&bs_num_thumb 1 BACKSPACE": {t: BS, h: Num}
+    "&ht_left_tp LCMD SV_A_RING": {t: "å", h: Gui}
+    "&ht_left LALT SV_A_UMLAUT": {t: "ä", h: Alt}
+    "&ht_left LSHFT SV_O_UMLAUT": {t: "ö", h: Shift}
+    "&ht_left LCTRL BACKSPACE": {t: BS, h: Ctrl}
     "&mkp_lt 7 MCLK": {t: "Mid CLK", h: "Scroll"}
     "&tog 4": "GAME"
     "&msc SCRL_UP": "SCRL UP"
