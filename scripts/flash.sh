@@ -58,14 +58,20 @@ side_for_serial() {
 }
 
 mount_point() {
-  local dev=$1 mnt
+  local dev=$1 mnt=""
   for _ in $(seq 20); do
     mnt=$(findmnt -n -o TARGET --source "$dev" 2>/dev/null || true)
-    [[ -n "$mnt" ]] && { echo "$mnt"; return; }
+    [[ -n "$mnt" ]] && break
     sleep 0.5
   done
   # Not auto-mounted
-  udisksctl mount -b "$dev" >/dev/null
+  [[ -n "$mnt" ]] || udisksctl mount -b "$dev" >/dev/null
+  # Read-only mount (e.g. FAT left dirty by a reboot mid-write): remount rw
+  if [[ ",$(findmnt -n -o OPTIONS --source "$dev")," == *",ro,"* ]]; then
+    log "$dev mounted read-only, remounting rw"
+    udisksctl unmount -b "$dev" >/dev/null
+    udisksctl mount -b "$dev" -o rw >/dev/null
+  fi
   findmnt -n -o TARGET --source "$dev"
 }
 
